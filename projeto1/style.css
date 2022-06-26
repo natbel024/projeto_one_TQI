@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+
+body{
+   padding: 0;
+   margin: 0;
+   color: #DDA0DD;
+   font-family: 'Comfortaa';
+}
+
+.header-wrapper{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(-45deg,#8B008B,#7d2f9e,#BA55D3,#DA70D6);
+    background-size: 400% 400%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    animation: backgroundTransition 8s ease-in-out infinite; 
+}
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+h2{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+a:hover {
+    color: black;
+    background-color: beige;
+}
+
+@keyframes backgroundTransition {
+    0%{
+        background-position: 0% 80%;
+    }
+
+    50%{
+        background-position: 80% 100%;
+    }
+    100%{
+        background-position: 0% 90%;
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400ms ease-in-out 0;
+}
+
+.checkbox .trace {
+    width: 50px;
+    height: 2px;
+    background-color: azure;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5 ease-in-out;
+}
+
+.checkbox .trace:nth-child(1){
+     top:26px;
+     transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2){
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3){
+     top: 66px;
+     transform: rotate(0);
+}
+
+#toogle {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    top: 28px;
+    right:30px;
+    background: transparent;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px azure;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-itens{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0;
+}
+
+.menu-itens ul{
+    list-style-type: none;
+}
+
+.menu-itens ul li a{
+    margin: 10px 0;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+}
+
+#toogle:checked + .checkbox .trace:nth-child(1){
+    transform: rotate(45deg);
+    background-color: black;
+    top: 47px;
+}
+
+#toogle:checked + .checkbox .trace:nth-child(2){
+    transform: translateX(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toogle:checked + .checkbox .trace:nth-child(3){
+    transform: rotate(-45deg);
+    background-color: black;
+    top: 48px;
+}
+
+#toogle:checked + .checkbox{
+    background-color: azure;
+}
+
+#toogle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax azure;
+    z-index: 1;
+}
+
+#toogle:checked ~ .menu-itens{
+    visibility: visible;
+    opacity: 1;
+}
