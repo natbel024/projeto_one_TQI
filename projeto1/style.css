@@ -245,3 +245,42 @@ a:hover {
     height: 250px;
 }
 
+footer { 
+    background-color: #7d2f9e;
+    height: 100px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 800px) {
+    .container {
+        margin-top: 0;
+    }
+
+    .card-container {
+        flex-direction: column;
+    }
+
+    .container .card-container:nth-child(1),
+    .container .card-container:nth-child(3) {
+         flex-direction: column-reverse;
+    }
+
+    .card {
+        height: 250px;
+        width: 250px;
+    }
+
+    .card-text {
+        width: 90%;
+        margin-top:  2rem;
+        text-align: center;
+    }
+
+    .card:hover > .card-wrapper::before  {
+        height: 190px;
+        width: 190px;
+    }
+}
